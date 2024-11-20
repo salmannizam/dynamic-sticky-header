@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* styles.css */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.scrollable-table {
+  width: auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+th.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: rgb(218, 159, 159);
+  left: var(--sticky-column-left, 0); /* Set left position dynamically */
+}
+
+td.sticky {
+  position: sticky;
+  z-index: 1;
+  background-color: #cc7b7b; /* Adjust background color as needed */
+  left: var(--sticky-column-left, 0); /* Set left position dynamically */
+}
+
+
+.table-wrapper-vertical {
+  width: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.scrollable-table-vertical {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+tr.sticky-row {
+  position: sticky;
+  top: var(--sticky-row-top, 0); /* Set top position dynamically */
+  z-index: 1;
+  background-color: #cc7b7b; /* Adjust background color as needed */
+}
+
+th.sticky-row {
+  z-index: 2; /* Ensure headers have a higher z-index */
+}
